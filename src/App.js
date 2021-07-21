@@ -1,14 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import Posts from './Posts';
+
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    fetch('http://localhost:3000/posts')
+    .then(response => response.json())
+    .then(data => setPosts(data));
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -17,6 +27,7 @@ function App() {
         >
           Learn React
         </a>
+        <Posts posts={posts}/>
       </header>
     </div>
   );
