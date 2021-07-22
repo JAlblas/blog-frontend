@@ -1,6 +1,8 @@
 import './Posts.css';
 import { useState, useEffect } from 'react';
 
+import Post from './Post';
+
 function Posts(props) {
 
   //const [posts, setPosts] = useState([]);
@@ -10,9 +12,9 @@ function Posts(props) {
   });
 
   return (
-    <div className="Posts">
+    <div className="posts">
         {props.posts.map(function(post, i){
-            return <div key={i} post={post}> {post.message}</div>;
+            return <Post post={post}/>;
         })}
     </div>
   );

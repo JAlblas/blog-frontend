@@ -1,0 +1,11 @@
+h1 {
+    margin: 0;
+    padding-top: 25px;
+}
+
+.post {
+    background-color: #FFF;
+    color: black;
+    padding-bottom: 25px;
+    margin-bottom: 10px;
+}
