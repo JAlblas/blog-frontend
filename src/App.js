@@ -1,5 +1,6 @@
 import './App.css';
 import Posts from './Posts';
+import Login from './Login';
 
 import { useState, useEffect } from 'react';
 
@@ -20,6 +21,7 @@ function App() {
         <nav>Welcome to my blog!</nav>
       </header>
       <Posts posts={posts}/>
+      <Login/>
     </div>
   );
 }
