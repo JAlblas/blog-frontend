@@ -1,6 +1,7 @@
 import './App.css';
 import Posts from './Posts';
 import Login from './Login';
+import Register from './Register';
 
 import { useState, useEffect } from 'react';
 
@@ -22,6 +23,7 @@ function App() {
       </header>
       <Posts posts={posts}/>
       <Login/>
+      <Register/>
     </div>
   );
 }
