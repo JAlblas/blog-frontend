@@ -1,6 +1,6 @@
 import './App.css';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Posts from './components/Posts';
@@ -9,6 +9,11 @@ import Register from './components/Register';
 import Publish from './components/Publish';
 
 function App() {
+  const [token, setToken] = useState();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
   return (
     <div className="App">
       <h1>Application</h1>
