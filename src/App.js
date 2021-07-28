@@ -8,8 +8,22 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Publish from './components/Publish';
 
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+}
+
+function getToken() {
+  const tokenString = sessionStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  if (userToken) {
+    return userToken.token;
+  } else {
+    return null;
+  }
+}
+
 function App() {
-  const [token, setToken] = useState();
+  const token = getToken();
 
   if(!token) {
     return <Login setToken={setToken} />
