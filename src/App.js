@@ -4,6 +4,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Posts from './components/Posts';
+import Users from './components/Users';
 import Login from './components/Login';
 import Register from './components/Register';
 import Publish from './components/Publish';
@@ -25,6 +26,9 @@ function App() {
         <Switch>
           <Route path="/posts">
             <Posts />
+          </Route>
+          <Route path="/users">
+            <Users />
           </Route>
           <Route path="/login">
             <Login />
