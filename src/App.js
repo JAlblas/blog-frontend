@@ -1,29 +1,16 @@
 import './App.css';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Posts from './components/Posts';
 import Login from './components/Login';
 import Register from './components/Register';
 import Publish from './components/Publish';
-
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  if (userToken) {
-    return userToken.token;
-  } else {
-    return null;
-  }
-}
+import useToken from './hooks/useToken';
 
 function App() {
-  const token = getToken();
+  const { token, setToken } = useToken();
 
   if(!token) {
     return <Login setToken={setToken} />
