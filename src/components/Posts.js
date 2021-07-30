@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 function Posts(props) {
 
   const [posts, setPosts] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     // Update the document title using the browser API
@@ -16,8 +17,25 @@ function Posts(props) {
       console.error('Error:', error);
     });
   }, []);
+
+  let createPost = (() => {
+    setShowForm(!showForm);
+  });
+  
+  if (showForm) {
+    return (
+      <form className="createPostForm" onSubmit={createPost}>
+        <label>
+          Name:
+          <input type="text"/>
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+
   if (posts.length === 0) {
-      return "NO POSTS";
+    return "NO POSTS";
   }
 
   return (
@@ -25,6 +43,7 @@ function Posts(props) {
         {posts.map(function(post, i){
             return <Post post={post}/>;
         })}
+        <button onClick={createPost}>Create post</button>
     </div>
   );
 }
